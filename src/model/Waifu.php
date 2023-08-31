@@ -74,4 +74,12 @@ class WaifuRepository
 
         return ($affectedLines > 0);
     }
+
+    public function deleteWaifu(string $identifier): bool
+    {
+        $statement = $this->connection->getConnection()->prepare('DELETE FROM waifu WHERE id = ?');
+        $affectedLines = $statement->execute([$identifier]);
+
+        return ($affectedLines > 0);
+    }
 }

@@ -101,4 +101,22 @@ class Waifu
             header('Location: waifu');
         }
     }
+
+    public function delete(string $identifier)
+    {
+        $waifuRepository = new WaifuRepository();
+        $waifuRepository->connection = new DatabaseConnection();
+        $success = $waifuRepository->deleteWaifu($identifier);
+
+        if (!$success)
+        {
+            throw new \Exception("Votre waifu $identifier n'existe pas.");
+        }
+        
+        else
+        {
+            header('Location: ../waifu');
+        }
+
+    }
 }
