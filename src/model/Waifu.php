@@ -39,4 +39,32 @@ class WaifuRepository
         return $waifus;
     }
 
+    public function getWaifu(string $identifier): ?Waifu
+    {
+        $statement = $this->connection->getConnection()->prepare("SELECT * FROM waifu WHERE id = ?");
+        $statement->execute([$identifier]);
+
+        $row = $statement->fetch();
+
+        if ($row === false)
+        {
+            return null;
+        }
+
+        $waifu = new Waifu();
+        $waifu->identifier = $row['id'];
+        $waifu->name = $row['name'];
+        $waifu->type = $row['type'];
+
+        return $waifu;
+    }
+
+    public function updateWaifu(string $identifier, string $name, string $type): bool
+    {
+        $statement = $this->connection->getConnection()->prepare('UPDATE waifu SET name = ?, type = ? WHERE id = ?');
+        $affectedLines = $statement->execute([$name, $type, $identifier]);
+
+        return ($affectedLines > 0);
+    }
+
 }

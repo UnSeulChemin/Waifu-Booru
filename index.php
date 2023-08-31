@@ -76,7 +76,24 @@ try
 
         else if ($_GET['page'] === 'waifu')
         {
-            (new Waifu())->execute();
+            if (isset($_GET['id']) && $_GET['id'] > 0)
+            {
+                $identifier = $_GET['id'];
+                // It sets the input only when the HTTP method is POST (ie. the form is submitted).
+                $input = null;
+
+                if ($_SERVER['REQUEST_METHOD'] === 'POST')
+                {
+                    $input = $_POST;
+                }
+
+                (new Waifu())->update($identifier, $input);
+            }
+
+            else
+            {
+                (new Waifu())->execute();
+            }
         }
 
         else
