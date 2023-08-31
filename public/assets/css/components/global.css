@@ -1,0 +1,57 @@
+body
+{
+    font-family: var(--font-family);
+    text-align: center;
+    background-color: var(--background-color-body);
+
+    /* Change Default */
+    box-sizing: border-box;
+}
+
+main
+{
+    width: 90%;
+    background-color: var(--background-color-main);
+
+    margin: auto;
+    margin-top: 20px;
+}
+
+h1
+{
+    font-size: 1.2em;
+}
+
+h2
+{
+    font-size: 1.2em;
+
+    padding-bottom: 20px;
+}
+
+h3
+{
+    font-size: 1.2em;
+
+    padding-bottom: 20px;
+}
+
+p
+{
+    font-size: 1.1em;
+
+    padding-bottom: 10px;
+}
+
+a
+{
+    font-size: 1.1em;
+    text-decoration: none;
+
+    display: inline-block;
+}
+
+label
+{
+    font-size: 1.1em;
+}

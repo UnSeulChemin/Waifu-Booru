@@ -1,0 +1,9 @@
+
+favicon
+= https://www.flaticon.com/search?word=one%20way
+
+images pages
+= https://unsplash.com/fr/s/photos/enterprise
+
+icon
+= https://fontawesome.com/icons

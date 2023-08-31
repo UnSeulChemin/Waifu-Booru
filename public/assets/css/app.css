@@ -1,0 +1,16 @@
+/* Default */
+@import 'components/variables.css';
+@import 'components/global.css';
+@import 'components/class.css';
+
+/* _Partials */
+@import 'components/_partials/header.css';
+
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/* Responsive */
+@import 'responsive/desktop.css';
+@import 'responsive/laptop.css';
+@import 'responsive/tablet.css';
+@import 'responsive/mobile.css';
