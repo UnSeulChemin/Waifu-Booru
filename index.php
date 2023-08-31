@@ -6,16 +6,20 @@ require_once('src/controllers/comment/update.php');
 require_once('src/controllers/homepage.php');
 require_once('src/controllers/post.php');
 
+require_once('src/controllers/WaifuController.php');
+
 // use
 use Application\Controllers\Comment\Add\AddComment;
 use Application\Controllers\Comment\Update\UpdateComment;
 use Application\Controllers\Homepage\Homepage;
 use Application\Controllers\Post\Post;
 
+use Application\Controllers\Waifu\Waifu;
+
 // router
 try
 {
-    if (isset($_GET['page']) && $_GET['page'] !== '')
+    if (isset($_GET['page']) && !empty($_GET['page']))
     {
         if ($_GET['page'] === 'post')
         {
@@ -68,6 +72,11 @@ try
             {
                 throw new Exception('Aucun identifiant de commentaire envoyé');
             }
+        }
+
+        else if ($_GET['page'] === 'waifu')
+        {
+            (new Waifu())->execute();
         }
 
         else

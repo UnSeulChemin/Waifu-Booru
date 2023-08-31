@@ -39,7 +39,7 @@ class UpdateComment
             
             else
             {
-                header('Location: ../post/' . $identifier);
+                header('Location: ../');
             }
         }
 
