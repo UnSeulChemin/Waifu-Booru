@@ -67,4 +67,11 @@ class WaifuRepository
         return ($affectedLines > 0);
     }
 
+    public function createWaifu(string $name, string $type): bool
+    {
+        $statement = $this->connection->getConnection()->prepare('INSERT INTO waifu(name, type) VALUES(?, ?)');
+        $affectedLines = $statement->execute([$name, $type]);
+
+        return ($affectedLines > 0);
+    }
 }

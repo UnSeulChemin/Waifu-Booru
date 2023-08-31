@@ -90,6 +90,13 @@ try
                 (new Waifu())->update($identifier, $input);
             }
 
+            else if ($_SERVER['REQUEST_METHOD'] === 'POST' &&!isset($_GET['id']))
+            {
+                $input = $_POST;
+
+                (new Waifu())->create($input);
+            }
+
             else
             {
                 (new Waifu())->execute();

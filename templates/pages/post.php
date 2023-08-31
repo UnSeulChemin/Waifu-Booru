@@ -1,17 +1,10 @@
 <?php $title = "Le blog de l'AVBN"; ?>
 
 <?php ob_start(); ?>
+<main>
+
 <h1>Le super blog de l'AVBN !</h1>
-<p><a href="../">Retour à la liste des billets</a></p>
-
-<div class="news">
-    <h3>
-        <?= htmlspecialchars($post->title) ?>
-        <em>le <?= $post->frenchCreationDate ?></em>
-    </h3>
-
-    <p><?= nl2br(htmlspecialchars($post->content)) ?></p>
-</div>
+<p><a href="../">Retour à la liste des billetsss</a></p>
 
 <h2>Commentaires</h2>
 
@@ -40,6 +33,8 @@ foreach ($comments as $comment)
 <?php
 }
 ?>
+
+<main>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('templates/base.php') ?>

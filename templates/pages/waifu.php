@@ -10,6 +10,21 @@
             <p>Bienvenue sur la page waifu.</p>
         </div>
 
+        <form action="waifu" method="post">
+
+            <div>
+                <label for="name">Name</label><br />
+                <input type="text" id="name" name="name" />
+            </div>
+            <div>
+                <label for="type">Type</label><br />
+                <textarea id="type" name="type"></textarea>
+            </div>
+            <div>
+                <input type="submit" />
+            </div>
+        </form>
+
         <div class="array-show">
 
             <?php

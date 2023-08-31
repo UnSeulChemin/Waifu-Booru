@@ -70,4 +70,35 @@ class Waifu
 
         require('templates/pages/waifu_update.php');
     }
+
+    public function create(array $input)
+    {
+        $name = null;
+        $type = null;
+
+        if (!empty($input['name']) && !empty($input['type']))
+        {
+            $name = $input['name'];
+            $type = $input['type'];
+        }
+        
+        else
+        {
+            throw new \Exception('Les données du formulaire sont invalides.');
+        }
+
+        $waifuRepository = new WaifuRepository();
+        $waifuRepository->connection = new DatabaseConnection();
+        $success = $waifuRepository->createWaifu($name, $type);
+
+        if (!$success)
+        {
+            throw new \Exception('Impossible d\'ajouter !');
+        }
+        
+        else
+        {
+            header('Location: waifu');
+        }
+    }
 }
