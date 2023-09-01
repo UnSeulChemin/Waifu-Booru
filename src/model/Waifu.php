@@ -20,6 +20,7 @@ class WaifuRepository
 {
     public DatabaseConnection $connection;
 
+    // fetch all
     public function getWaifus(): array
     {
         $statement = $this->connection->getConnection()->query("SELECT * FROM waifu ORDER BY id DESC LIMIT 5");
@@ -39,6 +40,7 @@ class WaifuRepository
         return $waifus;
     }
 
+    // fetch by id
     public function getWaifu(string $identifier): ?Waifu
     {
         $statement = $this->connection->getConnection()->prepare("SELECT * FROM waifu WHERE id = ?");
@@ -59,14 +61,7 @@ class WaifuRepository
         return $waifu;
     }
 
-    public function updateWaifu(string $identifier, string $name, string $type): bool
-    {
-        $statement = $this->connection->getConnection()->prepare('UPDATE waifu SET name = ?, type = ? WHERE id = ?');
-        $affectedLines = $statement->execute([$name, $type, $identifier]);
-
-        return ($affectedLines > 0);
-    }
-
+    // create
     public function createWaifu(string $name, string $type): bool
     {
         $statement = $this->connection->getConnection()->prepare('INSERT INTO waifu(name, type) VALUES(?, ?)');
@@ -75,6 +70,16 @@ class WaifuRepository
         return ($affectedLines > 0);
     }
 
+    // update
+    public function updateWaifu(string $identifier, string $name, string $type): bool
+    {
+        $statement = $this->connection->getConnection()->prepare('UPDATE waifu SET name = ?, type = ? WHERE id = ?');
+        $affectedLines = $statement->execute([$name, $type, $identifier]);
+
+        return ($affectedLines > 0);
+    }
+
+    // delete
     public function deleteWaifu(string $identifier): bool
     {
         $statement = $this->connection->getConnection()->prepare('DELETE FROM waifu WHERE id = ?');
