@@ -15,13 +15,15 @@ class Waifu
 {
     public function execute()
     {
-      $waifuRepository = new WaifuRepository();
-      $waifuRepository->connection = new DatabaseConnection();
+        $connection = new DatabaseConnection();
+
+        $waifuRepository = new WaifuRepository();
+        $waifuRepository->connection = $connection;
   
-      $waifus = $waifuRepository->getWaifus();
+        $waifus = $waifuRepository->getWaifus();
   
-      // vue
-      require('templates/pages/waifu.php');
+        // vue
+        require('templates/pages/waifu.php');
     }
 
     public function update(string $identifier, ?array $input)

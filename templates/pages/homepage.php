@@ -12,25 +12,6 @@
 
     </section>
 
-<?php
-foreach ($posts as $post)
-{
-?>
-    <div class="news">
-        <h3>
-            <?= htmlspecialchars($post->title); ?>
-            <em>le <?= $post->frenchCreationDate; ?></em>
-        </h3>
-        <p>
-            <?= nl2br(htmlspecialchars($post->content)); ?>
-            <br />
-            <em><a href="post/<?= urlencode($post->identifier) ?>">Commentaires</a></em>
-        </p>
-    </div>
-    <?php
-    }
-    ?>
-
 </main>
 <?php $content = ob_get_clean(); ?>
 
