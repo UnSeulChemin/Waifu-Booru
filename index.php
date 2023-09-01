@@ -1,17 +1,14 @@
 <?php
 
 // require
-require_once('src/controllers/comment/add.php');
-require_once('src/controllers/comment/update.php');
-require_once('src/controllers/homepage.php');
-
+require_once('src/controllers/HomepageController.php');
 require_once('src/controllers/WaifuController.php');
 
 // use
 use Application\Controllers\Comment\Add\AddComment;
 use Application\Controllers\Comment\Update\UpdateComment;
-use Application\Controllers\Homepage\Homepage;
 
+use Application\Controllers\Homepage\Homepage;
 use Application\Controllers\Waifu\Waifu;
 
 // router

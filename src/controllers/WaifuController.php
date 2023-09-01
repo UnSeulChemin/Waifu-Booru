@@ -33,6 +33,7 @@ class Waifu
         {
             $name = null;
             $type = null;
+
             if (!empty($input['name']) && !empty($input['type']))
             {
                 $name = $input['name'];
