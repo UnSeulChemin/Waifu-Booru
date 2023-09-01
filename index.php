@@ -16,72 +16,28 @@ try
 {
     if (isset($_GET['page']) && !empty($_GET['page']))
     {
-        if ($_GET['page'] === 'post')
+        if ($_GET['page'] === 'waifu' || $_GET['page'] === 'wdelete' || $_GET['page'] === 'wupdate' || $_GET['page'] === 'wcreate')
         {
-            if (isset($_GET['id']) && $_GET['id'] > 0)
+            if ($_GET['page'] === 'wupdate')
             {
-                $identifier = $_GET['id'];
-
-                (new Post())->execute($identifier);
-            }
-
-            else
-            {
-                throw new Exception('Aucun identifiant de billet envoyé');
-            }
-        }
-
-        elseif ($_GET['page'] === 'addComment')
-        {
-            if (isset($_GET['id']) && $_GET['id'] > 0)
-            {
-                $identifier = $_GET['id'];
-
-                (new AddComment())->execute($identifier, $_POST);
-            }
-
-            else
-            {
-                throw new Exception('Aucun identifiant de billet envoyé');
-            }
-        }
-
-        elseif ($_GET['page'] === 'updateComment')
-        {
-            if (isset($_GET['id']) && $_GET['id'] > 0)
-            {
-                $identifier = $_GET['id'];
-                // It sets the input only when the HTTP method is POST (ie. the form is submitted).
-                $input = null;
-
-                if ($_SERVER['REQUEST_METHOD'] === 'POST')
+                if (isset($_GET['id']) && $_GET['id'] > 0)
                 {
-                    $input = $_POST;
+                    $identifier = $_GET['id'];
+                    // It sets the input only when the HTTP method is POST (ie. the form is submitted).
+                    $input = null;
+    
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST')
+                    {
+                        $input = $_POST;
+                    }
+    
+                    (new Waifu())->update($identifier, $input);
                 }
 
-                (new UpdateComment())->execute($identifier, $input);
-            }
-
-            else
-            {
-                throw new Exception('Aucun identifiant de commentaire envoyé');
-            }
-        }
-
-        else if ($_GET['page'] === 'waifu' || $_GET['page'] === 'wdelete' || $_GET['page'] === 'wupdate')
-        {
-            if ($_GET['page'] === 'wupdate' && isset($_GET['id']) && $_GET['id'] > 0)
-            {
-                $identifier = $_GET['id'];
-                // It sets the input only when the HTTP method is POST (ie. the form is submitted).
-                $input = null;
-
-                if ($_SERVER['REQUEST_METHOD'] === 'POST')
+                else
                 {
-                    $input = $_POST;
+                    throw new Exception('Aucune Waifu de reçu.');
                 }
-
-                (new Waifu())->update($identifier, $input);
             }
 
             else if ($_GET['page'] === 'wdelete' && isset($_GET['id']) && $_GET['id'] > 0)
@@ -90,12 +46,15 @@ try
 
                 (new Waifu())->delete($identifier);
             }
-
-            else if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_GET['id']))
+            
+            else if ($_GET['page'] === 'wcreate')
             {
-                $input = $_POST;
-
-                (new Waifu())->create($input);
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_GET['id']))
+                {
+                    $input = $_POST;
+    
+                    (new Waifu())->create($input);
+                }
             }
 
             else

@@ -10,7 +10,7 @@
             <p>Bienvenue sur la page waifu.</p>
         </div>
 
-        <form action="waifu" method="post">
+        <form action="wcreate" method="post">
 
             <div>
                 <label for="name">Name</label><br />
