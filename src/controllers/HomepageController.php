@@ -1,7 +1,7 @@
 <?php
 
 // namespace
-namespace Application\Controllers\Homepage;
+namespace Application\Controllers\HomepageController;
 
 // require
 require_once('src/lib/database.php');

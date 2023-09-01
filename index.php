@@ -5,20 +5,27 @@ require_once('src/controllers/HomepageController.php');
 require_once('src/controllers/WaifuController.php');
 
 // use
-use Application\Controllers\Comment\Add\AddComment;
-use Application\Controllers\Comment\Update\UpdateComment;
-
-use Application\Controllers\Homepage\Homepage;
-use Application\Controllers\Waifu\Waifu;
+use Application\Controllers\HomepageController\Homepage;
+use Application\Controllers\WaifuController\Waifu;
 
 // router
 try
 {
     if (isset($_GET['page']) && !empty($_GET['page']))
     {
-        if ($_GET['page'] === 'waifu' || $_GET['page'] === 'wdelete' || $_GET['page'] === 'wupdate' || $_GET['page'] === 'wcreate')
+        if ($_GET['page'] === 'waifu' || $_GET['page'] === 'wcreate' || $_GET['page'] === 'wupdate' || $_GET['page'] === 'wdelete')
         {
-            if ($_GET['page'] === 'wupdate')
+            if ($_GET['page'] === 'wcreate')
+            {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST')
+                {
+                    $input = $_POST;
+    
+                    (new Waifu())->create($input);
+                }
+            }
+
+            else if ($_GET['page'] === 'wupdate')
             {
                 if (isset($_GET['id']) && $_GET['id'] > 0)
                 {
@@ -40,23 +47,16 @@ try
                 }
             }
 
-            else if ($_GET['page'] === 'wdelete' && isset($_GET['id']) && $_GET['id'] > 0)
+            else if ($_GET['page'] === 'wdelete')
             {
-                $identifier = $_GET['id'];
+                if (isset($_GET['id']) && $_GET['id'] > 0)
+                {
+                    $identifier = $_GET['id'];
 
-                (new Waifu())->delete($identifier);
+                    (new Waifu())->delete($identifier);
+                }         
             }
             
-            else if ($_GET['page'] === 'wcreate')
-            {
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_GET['id']))
-                {
-                    $input = $_POST;
-    
-                    (new Waifu())->create($input);
-                }
-            }
-
             else
             {
                 (new Waifu())->execute();
@@ -77,7 +77,7 @@ try
 
 catch (Exception $exception)
 {
-	$errorMessage = 'Error : ' . $exception->getMessage();
+	$errorMessage = 'Erreur : ' . $exception->getMessage();
 
     require('templates/pages/error.php');
 }

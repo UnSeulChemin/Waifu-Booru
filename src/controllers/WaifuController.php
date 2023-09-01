@@ -1,7 +1,7 @@
 <?php
 
 // namespace
-namespace Application\Controllers\Waifu;
+namespace Application\Controllers\WaifuController;
 
 // require
 require_once('src/lib/database.php');
