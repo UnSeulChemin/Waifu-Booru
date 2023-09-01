@@ -77,7 +77,7 @@ try
 
 catch (Exception $exception)
 {
-	$errorMessage = 'Erreur : ' . $exception->getMessage();
+	$errorMessage = $exception->getMessage();
 
     require('templates/pages/error.php');
 }
