@@ -74,9 +74,9 @@ try
             }
         }
 
-        else if ($_GET['page'] === 'waifu' || $_GET['page'] === 'delete' || $_GET['page'] === 'update')
+        else if ($_GET['page'] === 'waifu' || $_GET['page'] === 'wdelete' || $_GET['page'] === 'wupdate')
         {
-            if ($_GET['page'] === 'update' && isset($_GET['id']) && $_GET['id'] > 0)
+            if ($_GET['page'] === 'wupdate' && isset($_GET['id']) && $_GET['id'] > 0)
             {
                 $identifier = $_GET['id'];
                 // It sets the input only when the HTTP method is POST (ie. the form is submitted).
@@ -90,7 +90,7 @@ try
                 (new Waifu())->update($identifier, $input);
             }
 
-            else if (isset($_GET['id']) && $_GET['id'] > 0 && $_GET['page'] === 'delete')
+            else if ($_GET['page'] === 'wdelete' && isset($_GET['id']) && $_GET['id'] > 0)
             {
                 $identifier = $_GET['id'];
 

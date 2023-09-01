@@ -4,7 +4,7 @@
 
 <h2>Modification</h2>
 
-<form action="../waifu/<?= $waifu->identifier ?>" method="post">
+<form action="../wupdate/<?= $waifu->identifier ?>" method="post">
    <div>
       <label for="name">Name</label><br />
       <input type="text" id="name" name="name" value="<?= htmlspecialchars($waifu->name) ?>"/>

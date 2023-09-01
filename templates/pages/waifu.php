@@ -33,8 +33,8 @@
                 <div class="array-show-within">
                     <p><span class="bold">Nom :</span> <?= htmlspecialchars($waifu->name); ?></p>
                     <p><span class="bold">Type :</span> <?= htmlspecialchars($waifu->type); ?></p>
-                    <a href="update/<?= $waifu->identifier ?>">modifier</a>
-                    <a href="delete/<?= $waifu->identifier ?>">del</a>
+                    <a href="wupdate/<?= $waifu->identifier ?>">modifier</a>
+                    <a href="wdelete/<?= $waifu->identifier ?>">del</a>
                 </div>
                 <?php
             }
