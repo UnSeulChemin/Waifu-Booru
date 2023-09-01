@@ -24,7 +24,7 @@ class Waifu
         $waifus = $waifuRepository->getWaifus();
   
         // vue
-        require('templates/pages/waifu.php');
+        require('templates/pages/waifu/waifu.php');
     }
 
     // create
@@ -105,7 +105,7 @@ class Waifu
             throw new \Exception("Votre waifu $identifier n'existe pas.");
         }
 
-        require('templates/pages/waifu_update.php');
+        require('templates/pages/waifu/waifu_update.php');
     }
 
     // delete

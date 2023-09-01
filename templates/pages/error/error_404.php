@@ -1,4 +1,4 @@
-<?php $title = "Erreur"; ?>
+<?php $title = "Erreur 404"; ?>
 
 <?php ob_start(); ?>
 <main>

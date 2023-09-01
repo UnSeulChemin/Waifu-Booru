@@ -79,5 +79,5 @@ catch (Exception $exception)
 {
 	$errorMessage = $exception->getMessage();
 
-    require('templates/pages/error.php');
+    require('templates/pages/error/error_404.php');
 }
