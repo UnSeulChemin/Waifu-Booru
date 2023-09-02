@@ -149,6 +149,7 @@ form div:last-of-type
 
 form div input
 {
+    text-align: center;
     width: 250px;
     background-color: var(--background-color-form-input);
 
