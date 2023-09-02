@@ -1,3 +1,50 @@
+
+/* Webkit */
+
+input::-webkit-input-placeholder
+{
+    font-size: 1.1em;
+    font-family: var(--font-family);
+    text-align: center;
+}
+
+textarea::-webkit-input-placeholder
+{
+    font-size: 1.1em;
+    font-family: var(--font-family);
+    text-align: center;
+}
+
+input::-moz-placeholder
+{
+    font-size: 1.1em;
+    font-family: var(--font-family);
+    text-align: center;
+}
+
+textarea::-moz-placeholder
+{
+    font-size: 1.1em;
+    font-family: var(--font-family);
+    text-align: center;
+}
+
+input:-ms-input-placeholder
+{
+    font-size: 1.1em;
+    font-family: var(--font-family);
+    text-align: center;
+}
+
+textarea:-ms-input-placeholder
+{
+    font-size: 1.1em;
+    font-family: var(--font-family);
+    text-align: center;
+}
+
+/* Generic */
+
 body
 {
     font-family: var(--font-family);
@@ -55,4 +102,56 @@ a
 label
 {
     font-size: 1.1em;
+}
+
+/* Form */
+
+form
+{
+    margin-top: 20px;
+}
+
+form div
+{
+    margin-bottom: 20px;
+}
+
+form div:last-of-type
+{
+    margin-bottom: 0;
+}
+
+form div input
+{
+    width: 250px;
+    background-color: var(--background-color-form-input);
+
+    padding: 5px;
+    border: 1px solid var(--black-min);
+    border-radius: 5px;
+}
+
+form div input:focus
+{
+    background-color: var(--white);
+}
+
+form div input[type="submit"]
+{
+    cursor: pointer;
+    width: 120px;
+    font-size: 1.1em;
+    font-family: var(--font-family);
+    color: var(--background-color-main);
+    background-color: var(--background-color-a-link);
+
+    padding: 10px;
+    border: none;
+    border-radius: 8px;  
+}
+
+form div input[type="submit"]:hover
+{
+    opacity: 0.9;
+    color: var(--white);
 }

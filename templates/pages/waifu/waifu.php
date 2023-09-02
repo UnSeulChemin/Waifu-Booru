@@ -13,16 +13,17 @@
         <form action="wcreate" method="post">
 
             <div>
-                <label for="name">Name</label><br />
-                <input type="text" id="name" name="name" />
+                <input type="text" name="name" minlength="1" maxlength="30" placeholder="Nom*" required>
             </div>
+
             <div>
-                <label for="type">Type</label><br />
-                <textarea id="type" name="type"></textarea>
+                <input type="text" name="type" minlength="1" maxlength="30" placeholder="Type*" required>
             </div>
+
             <div>
-                <input type="submit" />
+                <input type="submit" value="Ajouter">
             </div>
+
         </form>
 
         <div class="array-show">

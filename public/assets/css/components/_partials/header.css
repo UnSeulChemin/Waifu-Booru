@@ -23,8 +23,7 @@ header nav a
     width: 100px;
     color: var(--background-color-main);
     background-color: var(--background-color-a-link);
-    
-    margin-right: 20px;
+
     padding: 10px;
     border-radius: 10px;
 }
@@ -33,4 +32,10 @@ header nav a:hover
 {
     color: var(--black);
     background-color: var(--white);
+}
+
+header nav div:last-of-type
+{
+    display: flex;
+    gap: 20px;
 }
