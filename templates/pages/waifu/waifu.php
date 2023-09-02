@@ -7,7 +7,7 @@
 
         <div>
             <h2>Page Waifu</h2>
-            <p>Bienvenue sur la page waifu.</p>
+            <p>Créer ici votre Waifu.</p>
         </div>
 
         <form action="wcreate" method="post">
@@ -32,10 +32,17 @@
             foreach ($waifus as $waifu)
             {   ?>
                 <div class="array-show-within">
-                    <p><span class="bold">Nom :</span> <?= htmlspecialchars($waifu->name); ?></p>
-                    <p><span class="bold">Type :</span> <?= htmlspecialchars($waifu->type); ?></p>
-                    <a href="wupdate/<?= urlencode($waifu->identifier) ?>">modifier</a>
-                    <a href="wdelete/<?= urlencode($waifu->identifier) ?>">del</a>
+
+                    <div>
+                        <p><span class="bold">Nom :</span> <?= htmlspecialchars($waifu->name); ?></p>
+                        <p><span class="bold">Type :</span> <?= htmlspecialchars($waifu->type); ?></p>
+                    </div>
+
+                    <div>
+                        <a href="wupdate/<?= urlencode($waifu->identifier) ?>">Modifier</a>
+                        <a href="wdelete/<?= urlencode($waifu->identifier) ?>">Supprimer</a>
+                    </div>
+
                 </div>
                 <?php
             }

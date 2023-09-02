@@ -5,5 +5,5 @@ RewriteEngine On
 RewriteRule ^([a-zA-Z_0-9]*)$ index.php?page=$1 [L]
 RewriteRule ^([a-zA-Z_0-9]*)/([0-9]+)?$ index.php?page=$1&id=$2 [L]
 
-# ErrorDocument 404 http://localhost/template/
+ErrorDocument 404 http://localhost/github/waifubooru/
 # ErrorDocument 404 https://www.site.com/

@@ -1,4 +1,30 @@
 
+/* Scroll Bar */
+
+::-webkit-scrollbar
+{
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb
+{
+    background-color: var(--background-color-main);
+}
+
+::-webkit-scrollbar-track
+{
+    background-color: var(--background-color-a-link);
+}
+
+@supports (scrollbar-color: var(--background-color-main) var(--background-color-a-link))
+{
+    *
+    {
+        scrollbar-color: var(--background-color-main) var(--background-color-a-link);
+        scrollbar-width: auto;
+    }
+}
+
 /* Webkit */
 
 input::-webkit-input-placeholder

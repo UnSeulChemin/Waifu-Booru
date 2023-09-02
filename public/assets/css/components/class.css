@@ -49,20 +49,64 @@
 
 .array-show
 {
-    border: 2px solid #000;
-
-    padding: 20px 0;
     margin: 20px 0;
+    padding: 20px 0;
+    border: 2px solid var(--black);
+    border-radius: 5px;
 }
 
 .array-show-within
 {
-    padding-bottom: 20px;
+    width: 90%;
+    background-color: var(--background-color-a-link);
+
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
 }
 
 .array-show-within:last-of-type
 {
-    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.array-show-within div:last-of-type
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    margin-top: 10px;
+}
+
+.array-show-within a:first-of-type
+{
+    color: var(--white);
+    background-color: var(--black-min);
+
+    padding: 8px;
+    border: 2px solid var(--black);
+    border-radius: 3px;
+}
+
+.array-show-within a:last-of-type
+{
+    color: var(--red);
+    background-color: var(--black-min);
+
+    padding: 8px;
+    border: 2px solid var(--black);
+    border-radius: 3px;
+}
+
+.array-show-within a:hover
+{
+    opacity: 0.9;
+
+    background-color: var(--white);
+    color: var(--black);
 }
 
 .bold
